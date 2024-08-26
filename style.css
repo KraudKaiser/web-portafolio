@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 h1,h2,h3,h4,h5,h6, p{
     padding: 0;
     margin: 0;
@@ -18,7 +22,6 @@ body{
     min-height: 100vh;
     background-color: rgb(28, 32, 36);
     color: #eee;
-
 }
 
 
@@ -240,7 +243,6 @@ aside{
     display: flex;
     border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
 }
@@ -267,9 +269,59 @@ aside{
 }
 .project-tags {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
+
+    & .icons{
+        justify-content: center;
+    }
+
+    & .links{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        
+        & a{
+            position: relative;
+            transition: transform .3s ease;
+            & .tooltip-text{
+                visibility: hidden;
+                padding: 0.25em 0.5em;
+                background-color: #fff;
+                color: black;
+                text-align: center;
+                border-radius: 4px 4px 4px 0;
+                white-space: nowrap;
+                font-size: 10px;
+                /* Position the tooltip */
+                position: absolute;
+                z-index: 1000;
+                top: -25px;
+                left: 30px;
+                transition-property: visibility;
+                transition-delay: 0s;
+                
+            }
+            &:hover{
+                transform: translateY(-2px);
+
+                .tooltip-text{
+                    visibility: visible;
+                    transition-delay: .8s;
+                }
+            }
+    }
+    
+        & svg{
+            width: 45px;
+            height: auto;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            padding: 10px;
+        }
+    }
 }
 .project-tag {
     padding: 5px 10px;
@@ -320,11 +372,7 @@ aside{
     display: flex;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-}
-.job-post:hover {
-    transform: translateY(-5px);
 }
 .job-image {
     width: 400px;
@@ -416,3 +464,137 @@ aside{
         font-weight: 600;
     }
 }
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    border-top: 1px solid #70098d;
+    margin-left: 128px;
+    margin-right: 128px;
+    padding-top: 16px;
+    gap: 32px; 
+    margin-bottom: 75px;
+
+    & h2{
+        font-size: 36px;
+        & strong{
+            color: #70098d;
+        }
+    }
+
+    & p{
+        font-size: 20px;
+        font-weight: 600;
+
+        & strong{
+            font-style: italic;
+            color: #70098d;
+        }
+    }
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    & h3{
+        font-size: 36px;
+        & strong{
+            color: #70098d;
+        }
+    }
+
+    & input{
+        border: none;
+        background-color: #fff;
+        height: 40px;
+        width: 550px;
+        color: #70098d;
+        font-weight: 600;
+        padding: 25px 20px;
+        transition: outline .3s ease;
+        &:focus{
+            outline: 4px solid #70098d;
+        }
+    }
+
+    & textarea{
+        width: 550px;
+        height: 200px;
+        resize: none;
+        transition: outline .3s ease;
+        padding: 5px 10px;
+        color: #70098d;
+        font-weight: 600;
+        &:focus{
+            outline: 4px solid #70098d;
+        }
+    }
+    & button{
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        border: 0;
+        padding: 1.25em 2em;
+        background: none;
+        background-color: #70098d;
+        color: #eee;
+        transition: scale .3s ease;
+    }
+
+    & button:hover{
+        scale: 1.05;
+        cursor: pointer;
+    }
+
+    & .disabled{
+        opacity: .50;
+        &:hover{
+            scale: 1;
+            cursor: not-allowed;
+        }
+    }
+}
+
+footer{
+    display: flex;
+    height: 175px;
+    padding: 75px;
+    justify-content: space-evenly;
+    background-color: #070707;
+    align-items: center;
+    & h1{
+        font-size: 48px;
+
+        & strong{
+            color: #70098d;
+        }
+    }
+
+    & ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        list-style-type: none;
+        margin: 0;
+        & li{
+            align-self: center;
+            transition: transform .3s ease;
+            & svg{
+                width: 50px;
+                height: 40px;
+            }
+
+            &:hover{
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+
+    

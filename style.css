@@ -279,7 +279,11 @@ aside{
 }
 .project-description {
     font-size: 16px;
-    color: #666;
+    color: #fff;
+
+    & strong{
+        color: #70098d;
+    }
 }
 .project-tags {
     display: flex;
@@ -476,6 +480,16 @@ aside{
     & p{
         font-size: 18px;
         font-weight: 600;
+    }
+}
+
+.about-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    & strong{
+        color: #70098d;
     }
 }
 
